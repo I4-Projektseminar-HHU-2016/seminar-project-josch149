@@ -25,7 +25,9 @@ def csv_werte (datei, spalte1, spalte2):
 		return wertedict
 
 
-w1 = csv_werte ("CSVs/Niederschlag_0915.csv", 2,3)
+w1 = csv_werte ("CSVs/Sonnenschein_0915.csv", 2,3)
+w2 = csv_werte ("CSVs/Neuschnee_0915.csv", 2,3)
+w3 = csv_werte ("CSVs/Lufttemp_Max_0915.csv", 2,3)
 
 # folgedes Segment stammt von: http://stackoverflow.com/questions/10688006/generate-a-list-of-datetimes-between-an-interval abgerufen am 23.08.2016
 """from datetime import date, datetime, timedelta
@@ -65,8 +67,11 @@ for element in datumliste:
 
 #Weisheiten/Regeln Januar:
 
-#Ist der Januar hell und weiß, wird der Sommer sicher heiß:
-def jan1(csv_werte):
+#Jan: 1. Regel: Ist der Januar hell und weiß, wird der Sommer sicher heiß.
+
+def jan1_hell_weiss(csv_werte):
+	
+#Zuerst wird das benötigte Datumintervall erezugt
 	def intervall(start, ende, delta):
 		while start < ende:
 			yield start
@@ -75,7 +80,7 @@ def jan1(csv_werte):
 #	dict={}
 	liste1=[]
 	liste2=[]
-	for result in intervall(date(2015, 01, 01), date(2015, 02, 01), timedelta(days=1)):
+	for result in intervall(date(2015, 1, 1), date(2015, 2, 1), timedelta(days=1)):
 		datumliste.append(str(result))
 	for element in datumliste:
 		if element in csv_werte.iterkeys():
@@ -85,13 +90,73 @@ def jan1(csv_werte):
 		else:
 			pass
 			
-	return liste1, liste2
+#Hier wird das Komma in einen Punkt umgewandelt, damit später die Strings durch Floats ersetzt werden.		
+	counter=0
+	position=0
+	for element in liste2:
+		element_neu=element.replace(",", ".")
+		liste2[position]=element_neu
+		position=position+1
+
+#Hier wird gezählt, wie viele Werte den Anforderungen entsprechen.		
+	position=0
+	while position < len(liste2):
+		if liste2[position] != "0.0":
+			counter=counter + 1
+			position=position+1
+		else:
+			position=position+1
+	print liste2
+	ergebnis=[counter, len(liste2)]
+	return ergebnis
+
+#Zuerst wird das benötigte Datumintervall erezugt
+def jan1_sommer_heiss(csv_werte):
+	def intervall(start, ende, delta):
+		while start < ende:
+			yield start
+			start += delta
+	datumliste=[]
+#	dict={}
+	liste1=[]
+	liste2=[]
+	for result in intervall(date(2015, 6, 1), date(2015, 9, 1), timedelta(days=1)):
+		datumliste.append(str(result))
+	for element in datumliste:
+		if element in csv_werte.iterkeys():
+#			dict.update({element:csv_werte[element]})
+			liste1.append(element)
+			liste2.append(csv_werte[element])
+		else:
+			pass
+
+#Hier wird das Komma in einen Punkt umgewandelt, damit später die Strings durch Floats ersetzt werden.			
+	counter=0
+	position=0
+	for element in liste2:
+		element_neu=element.replace(",", ".")
+		liste2[position]=element_neu
+		position=position+1
+
+#Hier wird gezählt, wie viele Werte den Anforderungen entsprechen.
+	position=0
+	while position < len(liste2):
+		if float(liste2[position]) > 30.0:
+			counter=counter + 1
+			position=position+1
+		else:
+			position=position+1
+	print liste2
+	ergebnis=[counter, len(liste2)]
+	return ergebnis
 			
-print jan1(w1)
+print jan1_hell_weiss(w1)
+print jan1_hell_weiss(w2)
+print jan1_sommer_heiss(w3)
 
-#Lässt der Januar Regen fallen, lässt der Lenz es gefrieren:
+#Jan: 2.Regel: Lässt der Januar Regen fallen, lässt der Lenz es gefrieren.
 
-#Auf trockenen, kalten Januar folgt viel Schnee im Februar:
+#Jan: 3.Regel: Auf trockenen, kalten Januar folgt viel Schnee im Februar.
 
-#So viele Tropfen im Januar, so viel Schnee im Mai.
+#Jan: 4.Regel: So viele Tropfen im Januar, so viel Schnee im Mai.
 	
