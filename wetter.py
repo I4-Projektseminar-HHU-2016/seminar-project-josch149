@@ -82,7 +82,7 @@ def jan1_hell(csv_werte):
 #Hier wird gezählt, wie viele Werte den Anforderungen entsprechen.
 		position=0
 		while position < len(liste2):
-			if float(liste2[position]) >= 1.0:
+			if float(liste2[position]) > 0.0:
 				counter=counter + 1
 				position=position+1
 			else:
@@ -1302,9 +1302,10 @@ def bewertung_jan1 (werte1,werte2,werte3,titel):
 	count_wahr=0
 	count_falsch=0
 	
-#in dieser Schleife wird geprüft, ob die Weisheit/Regel in den einzelnen Jahren zu treffen, oder nicht. Dabei muss der jeweilige Wert über dem Referenzwert liegen.
+#in dieser Schleife wird geprüft, ob die Weisheit/Regel in den einzelnen Jahren zu treffen, oder nicht. 
+#Dabei muss der jeweilige Wert über dem Referenzwert liegen.
 	while x < len(xwerte):
-		if ywerte1[x] >= refwert1 and ywerte2[x] >= refwert2 and ywerte3[x] >= refwert3:
+		if (ywerte1[x] >= refwert1 or ywerte2[x] >= refwert2) and ywerte3[x] >= refwert3:
 			print xwerte[x],refwert1,ywerte1[x],refwert2,ywerte2[x],refwert3,ywerte3[x]
 			print xwerte[x], "trifft zu"
 			count_wahr=count_wahr+1
@@ -1620,12 +1621,12 @@ adidia3(feb2_feb_schnee(werte_schnee),feb2_feb_eis(werte_lt_min),jan1_sommer_hei
 #Mae: 1. Regel: Im Maerz viel Schnee und Regen bringt wenig Sommersegen.
 adidia3(mae1_mae_schnee(werte_schnee),mae1_mae_regen(werte_niederschlag),jan1_sommer_heiss(werte_lt_max), ['Mae. Schnee', 'Mae. Regen', 'Sommersegen'], 'Mae: 1. Regel: Im Maerz viel Schnee und Regen bringt wenig Sommersegen.')
 #Mae: 2. Regel: Haelt St. Ruprecht (28.03.) den Himmel rein, so wird es auch im Juli sein.
-adidia2(mae2_rup_sonne(werte_niederschlag, werte_sonne),mae2_juli_sonne(werte_sonne), ['St.Ruprecht (28.03.) Sonne', 'Juli Sonne'], '2. Regel: Haelt St. Ruprecht (28.03.) den Himmel rein, so wird es auch im Juli sein. 1.Teil')
-adidia2(mae2_rup_regen(werte_niederschlag),mae2_juli_regen(werte_niederschlag), ['St.Ruprecht (28.03.) Regen', 'Juli Regen'], '2. Regel: Haelt St. Ruprecht (28.03.) den Himmel rein, so wird es auch im Juli sein. 2.Teil')
+adidia2(mae2_rup_sonne(werte_niederschlag, werte_sonne),mae2_juli_sonne(werte_sonne), ['St.Ruprecht (28.03.) Sonne', 'Juli Sonne'], 'Mae 2. Regel Teil 1: Haelt St. Ruprecht (28.03.) den Himmel rein, so wird es auch im Juli sein.')
+adidia2(mae2_rup_regen(werte_niederschlag),mae2_juli_regen(werte_niederschlag), ['St.Ruprecht (28.03.) Regen', 'Juli Regen'], 'Mae 2. Regel Teil 2: Haelt St. Ruprecht (28.03.) den Himmel rein, so wird es auch im Juli sein.')
 
 #Bewertung der Weisheiten/Regeln in der Konsole für jedes Jahr und graphisch als Tortendiagramm für alle Jahre:
 #Jan: 1. Regel: Ist der Januar hell und weiss, wird der Sommer sicher heiss.
-bewertung_jan1(jan1_hell(werte_sonne),jan1_weiss(werte_schnee),jan1_sommer_heiss(werte_lt_max),'#Jan: 1. Regel: Ist der Januar hell und weiss, wird der Sommer sicher heiss.')
+bewertung_jan1(jan1_hell(werte_sonne),jan1_weiss(werte_schnee),jan1_sommer_heiss(werte_lt_max),'Jan: 1. Regel: Ist der Januar hell und weiss, wird der Sommer sicher heiss.')
 #Jan: 2.Regel: Laesst der Januar Regen fallen, laesst der Lenz es gefrieren.
 bewertung_jan2(jan2_regen(werte_niederschlag),jan2_lenz_frost(werte_lt_min),'Jan: 2.Regel: Laesst der Januar Regen fallen, laesst der Lenz es gefrieren.')
 #Jan: 3.Regel: Friert es auf Vigilius (31.01.), im Märzen Kälte kommen muss.
