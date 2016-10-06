@@ -1,11 +1,14 @@
-# Project Title
+# Weatherdata and weatherrules analysis with Python
 
-One Paragraph of project description goes here
+My project-code will be able to analyze weather data, to proof if weather rules are true or fals, for the vicinity of Duesseldorf.
 
 ## Features ##
 
-- [x] List of key features goes here
-- [ ] also mention optional and unfinished features
+- [x] read-in-function for weather datas form CSV-files, provided by the DWD ("Deutscher Wetterdienst", weatherservice of germany)
+- [x] generate-function for specific date intervals for each weatherrule
+- [x] draw-faction for additive charts, to visualize each parts result of a weather rule
+- [x] rating-function to rate the meaningfulness of each weather rule
+- [x] draw-function for pie charts, to visualize the meaningfulness of each weather rule
 
 ## Getting Started
 
@@ -13,48 +16,32 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisities
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+- This Python-code was written and tested with Python 2.7.11 - Anaconda 4.0.0 (64-bit).
+  You can get this form https://www.continuum.io/downloads .
+  
+- Editor like "Geany",
+  you can get "Geany" from https://www.geany.org/ .
 
 ### Installing
 
-A step by step series of instructions on how to get your code running
+You need a Python 2.7 distribution, preferably Anaconda 4.0.0, to run this script.
+An editor like "Geany" is required additionally.
+If you have both installed, you can continue as followed:
+At first you have to download the "wetter.py" file, and the "CSVs" folder. 
+Now open the "wetter.py" file with the editor and run the Python-script (in "Geany" just press the "F5" button).
+Finally the different charts should be shown successively.
 
-Stay what the step will be
+## Author
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-
-## Versioning
-
-*E.g.:* We use [SemVer](http://semver.org/) for versioning. 
-
-## Authors
-
-* **Tina Test** - [HHU-test](https://github.com/HHU-test)
+* **Joh. Christian Schade** - [I4-Projektseminar-HHU-2016/seminar-project-josch149](https://github.com/I4-Projektseminar-HHU-2016/seminar-project-josch149/)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-*Check http://choosealicense.com/ to choose a license for your code*
+This project is licensed under the MIT License - see the [LICENSE.md](http://choosealicense.com/licenses/mit/) file for details.
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Weatherdata by Deutscher Wetterdienst (DWD)
 
 
 
