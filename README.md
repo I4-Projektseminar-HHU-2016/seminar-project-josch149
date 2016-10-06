@@ -1,6 +1,6 @@
 # Weatherdata and weatherrules analysis with Python
 
-My project-code will be able to analyze weather data, to proof if weather rules are true or fals, for the vicinity of Duesseldorf.
+My project-code will be able to analyze weather data, to proof if weather rules are true or false, for the vicinity of Duesseldorf.
 
 ## Features ##
 
