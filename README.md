@@ -37,7 +37,7 @@ Finally the different charts should be shown successively.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](http://choosealicense.com/licenses/mit/) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/I4-Projektseminar-HHU-2016/seminar-project-josch149/blob/master/LICENSE.md) file for details.
 
 ## Acknowledgments
 
