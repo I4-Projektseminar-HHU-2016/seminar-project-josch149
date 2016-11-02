@@ -32,7 +32,9 @@ Now open the command line (CMD) and navigate to the folder, where the "wetter.py
 To navigate use "cd ..." as command.
 `cd Downloads` will navigate to the folder "Downloads" in the current folder.
 Since you have navigated to the folder with the "wetter.py" and the "CSVs" folder, you can run the script as follows:
+
 `python wetter.py`
+
 Finally the different charts should be shown successively.
 
 Optional:
