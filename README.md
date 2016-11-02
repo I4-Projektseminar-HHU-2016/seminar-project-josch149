@@ -19,17 +19,25 @@ These instructions will get you a copy of the project up and running on your loc
 - This Python-code was written and tested with Python 2.7.11 - Anaconda 4.0.0 (64-bit).
   You can get this form https://www.continuum.io/downloads .
   
+Optional:
 - Editor like "Geany",
   you can get "Geany" from https://www.geany.org/ .
 
 ### Installing
 
 You need a Python 2.7 distribution, preferably Anaconda 4.0.0, to run this script.
-An editor like "Geany" is required additionally.
-If you have both installed, you can continue as followed:
-At first you have to download the "wetter.py" file, and the "CSVs" folder. 
-Now open the "wetter.py" file with the editor and run the Python-script (in "Geany" just press the "F5" button).
+If you have it installed, you can continue as followed:
+At first you have to download the "wetter.py" file, and the "CSVs" folder.
+Now open the command line (CMD) and navigate to the folder, where the "wetter.py" and the "CSVs" folder are.
+To navigate use "cd ..." as command.
+'cd Downloads' will navigate to the folder "Downloads" in the current folder.
+Since you have navigated to the folder with the "wetter.py" and the "CSVs" folder, you can run the script as follows:
+'python wetter.py'
 Finally the different charts should be shown successively.
+
+Optional:
+You can optional open the "wetter.py" file with an editor and run the Python-script (in "Geany" just press the "F5" button).
+
 
 ## Author
 
