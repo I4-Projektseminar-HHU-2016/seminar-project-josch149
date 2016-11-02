@@ -26,13 +26,21 @@ Optional:
 ### Installing
 
 You need a Python 2.7 distribution, preferably Anaconda 4.0.0, to run this script.
+
 If you have it installed, you can continue as followed:
+
 At first you have to download the "wetter.py" file, and the "CSVs" folder.
+
 Now open the command line (CMD) and navigate to the folder, where the "wetter.py" and the "CSVs" folder are.
+
 To navigate use "cd ..." as command.
+
 `cd Downloads` will navigate to the folder "Downloads" in the current folder.
+
 Since you have navigated to the folder with the "wetter.py" and the "CSVs" folder, you can run the script as follows:
+
 `python wetter.py`
+
 Finally the different charts should be shown successively.
 
 Optional:
